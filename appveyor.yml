@@ -6,6 +6,10 @@ environment:
     - RUBY_VERSION: 23-x64
 
 
+artifacts:
+  - path: '*.json'
+    name: Reports
+
 install:
   - set PATH=C:\Ruby%RUBY_VERSION%\bin;%PATH%
   - bundle install
@@ -19,6 +23,8 @@ before_test:
 
 test_script:
   - bundle exec rake
+  - bundle exec cucumber features/docs/getting_started.feature -f json -o result.json
+  - bundle exec cucumber features\docs\getting_started.feature -f json -o result.json
 
 notifications:
   - provider: Slack
