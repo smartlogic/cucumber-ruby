@@ -22,9 +22,9 @@ before_test:
   - bundle -v
 
 test_script:
-  - bundle exec rake
   - bundle exec cucumber features/docs/getting_started.feature -f json -o result.json
   - bundle exec cucumber features\docs\getting_started.feature -f json -o result.json
+  - bundle exec rake
 
 notifications:
   - provider: Slack
