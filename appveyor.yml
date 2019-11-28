@@ -26,8 +26,8 @@ before_test:
   - bundle -v
 
 test_script:
-  - bundle exec cucumber features/docs/getting_started.feature -f json -o result.json
-  - bundle exec cucumber features\docs\getting_started.feature -f json -o result-1.json
+  - bundle exec cucumber features/docs/getting_started.feature -f json > result.json
+  - bundle exec cucumber features\docs\getting_started.feature -f json > result-1.json
   - bundle exec rake
 
 notifications:
