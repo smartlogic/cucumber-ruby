@@ -33,7 +33,9 @@ module Cucumber
         TestRunFinished,
         GherkinSourceRead,
         GherkinSourceParsed,
-        TestRunStarted
+        TestRunStarted,
+        Core::Events::TestStepCreated,
+        Core::Events::TestCaseCreated
       )
     end
   end

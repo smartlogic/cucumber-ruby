@@ -162,15 +162,21 @@ module Cucumber
     require 'cucumber/formatter/ignore_missing_messages'
     require 'cucumber/formatter/fail_fast'
     require 'cucumber/core/report/summary'
+    require 'cucumber/core/report/message'
+
     def report
       return @report if @report
-      reports = [summary_report] + formatters
+      reports = [summary_report, message_report] + formatters
       reports << fail_fast_report if @configuration.fail_fast?
       @report ||= Formatter::Fanout.new(reports)
     end
 
     def summary_report
       @summary_report ||= Core::Report::Summary.new(@configuration.event_bus)
+    end
+
+    def message_report
+      @message_report ||= Core::Report::Message.new(@configuration.event_bus)
     end
 
     def fail_fast_report
