@@ -10,13 +10,14 @@ Feature: Rule
 
         Rule: This is a rule
 
-          Example: First example
+          Background:
             Given some context
+
+          Example: First example
             When I do an action
             Then some results should be there
 
           Example: Second example
-            Given some context
             When I do another action
             Then some other results should be there
 
